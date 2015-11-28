@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--EXTERNAL JS FILE FOR UPDATING USERS INFO-->
+    <script src="static/js/profile-info.js"></script>
+    <!--EXTERNAL JS FILE FOR ADVENTURE LIST-->
+    <script src="static/js/adventurelist.js"></script>
+    <!--JQUERY AND AJAX SCRIPT -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <!-- EXTERNAL JS FILE FOR GOOGLE ADDRESS FORM -->
+    <script type="text/javascript" src="static/js/google-address-form.js"></script>
+  <!-- EXTERNAL CSS FILE FOR GOOGLE ADDRESS FORM -->
+    <link rel="stylesheet" type="text/css" href="static/css/postcard.css">
+     <link rel="stylesheet" type="text/css" href="static/css/passport-page-layout.css">
+
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/js/ajaxupload.js" type="text/javascript"></script>
+<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
+<style>
+html {
+  background: url(http://www.daba.in.rs/tf/pp_wordpress/wp-content/themes/penandpaper/lib/images/furley_bg.png);
+}
+<style>
+
+<style>
+/*timeline CSS
+*/
+
+* {
+  box-sizing: border-box;
+/*    box-shadow: 3px 4px 5px 6px #000;
+*/
+}
+
+ul {
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  width: 520px;
+  margin: 30px auto;
+  padding: 0;
+}
+
+ul:after {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  left: 60%;
+  top:0;
+  width: 4px;
+  margin-left: -2px;
+  min-height: 100%;
+/*  background-color: #eee; */
+
+background-color: #666666;
+
+
+
+}
+
+li {
+  z-index: 2;
+  position: relative;
+  width: 250px;
+  padding: 10px;
+  float: left;
+  margin-bottom: 30px;
+/*  background-color: #eee;
+*/    /*background-color: #666666;*/
+background: url(http://www.daba.in.rs/tf/pp_wordpress/wp-content/themes/penandpaper/lib/images/furley_bg.png);
+
+}
+
+li.left {
+  float: left;
+  clear: left;
+}
+
+li.right {
+  float: right;
+  clear: right;
+}
+
+/*li.highlight {
+  float: none;
+  clear: both;
+  width: auto;
+  border: 5px solid #fff;
+}
+*/
+/* arrow */
+/*
+li:before {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  right: -6px;
+  left: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #eee;
+  transform: rotate(45deg);
+}*/
+/*
+li.left:before {
+  left: auto;
+}*/
+
+/*li.right + li.left:before,
+li.left + li.right:before {
+  top: 36px;
+}*/
+/*
+li.highlight:before {
+  left: 50%;
+  margin-left: -6px;
+  right: auto;
+  top: -6px;
+}*/
+
+/* dot */
+
+li:after {
+  content:"";
+  z-index: 1;
+  position: absolute;
+  top: 14px;
+  right: -27px;
+  left: -27px;
+  width: 8px;
+  height: 8px;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  background-color: #ccc;
+  transition: .3s;
+}
+
+/*li:hover:after {
+  background-color: #999;
+  top: 12px;
+  right: -29px;
+  left: -29px;
+  width: 12px;
+  height: 12px;
+}
+
+/*li.left:after {
+  left: auto;
+}
+
+/*li.right + li.left:after,
+li.left + li.right:after {
+  top: 36px;
+*/
+
+
+/*}*/
+/*
+li.right + li.left:hover:after,
+li.left + li.right:hover:after {
+  top: 34px;
+}*/
+
+/*li.right:after {
+  right: auto;
+}*/
+
+/*li.highlight:after {
+  left: 50%;
+  margin-left: -7px;
+  right: auto;
+  top: -24px;
+}*/
+
+/*li.highlight:hover:after {
+  margin-left: -9px;
+  top: -26px;
+}*/
+</style>
+
+<!-- POLAROID CSS -->
+
+<style>
+/*class for relative and because text has to be absloute to relative to the postcard
+*/
+.polaroid {
+  position: relative;
+  width: 230px;
+}
+/*image element to have border and the border at the bottom higher up for postcard and used boxed shadow give depth */
+.polaroid img {
+  border: 10px solid #fff;
+  border-bottom: 45px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
+}
+/*this paragrpth tag with  text and font colors
+*/
+
+.polaroid p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0px;
+  font: 400 15px/1 'Shadows Into Light', cursive;
+  color: #888;
+}
+
+</style>
+
+
+<!-- POSTCARD CSS  VINTAGE-->
+<style>
+
+.flipcard {
+  postion: relative;
+  width: 477px;
+  height: 310px;
+
+  perspective: 600px;
+}
+
+#postcardback {
+    background-image: url("/static/img/p.jpg");
+    background-repeat: no-repeat;
+    width: 477px;
+    height: 318px;
+}
+
+.flipcard.h:hover .front, .flipcard.h.flip .front{
+  transform: rotateY(180deg);
+}
+.flipcard.h:hover .back, .flipcard.h.flip .back{
+  transform: rotateY(0deg);
+}
+.flipcard.h .back{
+  transform: rotateY(-180deg);
+}
+.flipcard .front, .flipcard .back
+{
+
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in;
+  color: black;
+  background-color: black;
+  padding: 10px;
+  backface-visibility: hidden;
+
+}
+
+
+#stamp {
+  position: absolute;
+  top:-80;
+  right:0;
+  padding-right: 20px;
+  height: -60px;
+  width: -70px;
+}
+
+
+#right-address {
+  float: right;
+  margin: 10px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+#left-message {
+  float: left;
+  margin: 10px;
+  padding-left: -80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#postcardback {
+    background-image: url("/static/img/p.jpg");
+    background-repeat: no-repeat;
+    width: 477px;
+    height: 318px;
+}
+</style>
+<!-- REGULAR POSTCARD-->
+
+<style>
+
+
+.flipcard {
+  postion: relative;
+  width: 477px;
+  height: 310px;
+  perspective: 600px;
+}
+
+
+
+.flipcard.h:hover .front, .flipcard.h.flip .front{
+  transform: rotateY(180deg);
+}
+.flipcard.h:hover .back, .flipcard.h.flip .back{
+  transform: rotateY(0deg);
+}
+.flipcard.h .back{
+  transform: rotateY(-180deg);
+}
+.flipcard .front, .flipcard .back
+{
+
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in;
+  color: black;
+  background-color: black;
+  padding: 10px;
+  backface-visibility: hidden;
+}
+
+
+#stamp {
+  position: absolute;
+  top:-70;
+  right:0;
+  padding-right: 30px;
+  height: -60px;
+  width: -70px;
+}
+
+
+#right-address {
+  float: right;
+  margin: 10px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+#left-message {
+  float: left;
+  margin: 10px;
+  padding-left: -80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#postcardback2 {
+  background-image: url("/static/img/postcard.jpg");
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 319px;
+}
+
+</style>
+</head>
+<body>
+                             <center><h1 class="title">Wanderlust Timeline</h1></center>
+
+<div class="container-fluid">
+  <ul>
+
+<li class="highlight">
+       <label><span><h2>New York City, New York</h2></span><center><h3>2015</h3></center></label>
+
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/nyc1.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/pimg/liberity.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+      </div><!--end postcard back-->
+  </li>
+
+
+
+  <li class="left">
+      <div class="polaroid">
+        <p>Centeral Park, October '15</p>
+        <img src="static/pimg/park.jpg" height="225" width="200" />
+      </div>
+  </li>
+ <li class="right">
+      <div class="polaroid">
+        <p>Walk In the Park, October '15</p>
+        <img src="static/pimg/nycpark.jpg" height="225" width="200" />
+      </div>
+  </li>
+
+  <li class="left">
+      <div class="polaroid">
+        <p>Rainy Days, October '15</p>
+        <img src="static/pimg/rain.jpg" height="225" width="200" />
+      </div>
+  </li>
+    <li class="right">
+    <div class="polaroid">
+    <p>Times Squre '15</p>
+      <img src="/static/img/times.jpg" height="225" width="200" />
+    </div>
+  </li>
+  <li class="highlight">
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/nyc.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback2" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/pimg/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+    </div><!--end postcard back-->
+  </li><!-- end right-->
+
+
+  <li class="highlight">
+     <label><span><h2>Paris, France</h2></span><center><h3>2014</h3></center></label>
+
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/img/paris-7.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback2" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/pimg/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+    </div><!--end postcard back-->
+
+
+
+  </li><!-- end right-->
+  <li class="left">
+   <div class="polaroid">
+  <p>Paris Evening, June '14</p>
+  <img src="static/pimg/pariswalk.jpg" height="225" width="200" />
+</div>
+</li>
+
+  <li class="right">
+   <div class="polaroid">
+    <p>Red, June '14</p>
+    <img src="static/pimg/red.jpg" height="225" width="200" />
+    </div>
+  </li>
+
+  <li class="right">
+   <div class="polaroid">
+    <p>Efile Tower, June '14</p>
+    <img src="static/pimg/redparis.jpg" height="225" width="200" />
+    </div>
+  </li>
+
+    <li class="highlight">
+      <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/i.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/img/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+    </div><!--end postcard back-->
+  </li>
+
+<li class="highlight">
+     <label><span><h2>London, England</h2></span><center><h3>2012</h3></center></label>
+
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/londoncity.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback2" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/pimg/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+    </div><!--end postcard back-->
+
+  <li class="left">
+   <div class="polaroid">
+  <p>Big Ben, June '14</p>
+  <img src="static/pimg/phone.jpg" height="225" width="200" />
+</div>
+</li>
+
+  <li class="right">
+   <div class="polaroid">
+    <p>Hello from London, June '14</p>
+    <img src="static/pimg/london.jpg" height="225" width="200" />
+    </div>
+  </li>
+
+  <li class="highlight">
+     <label><span><h2>San Francisco, California</h2></span><center><h3>2012</h3></center></label>
+
+
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/img/sf3.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/img/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+      </div><!--end postcard back-->
+  </li>
+
+  <li class="right">
+    <div class="polaroid">
+    <p>Fisherman's Warf, June '13</p>
+    <img src="static/pimg/sf6.jpg" height="225" width="200" />
+    </div>
+  </li>
+    <li class="left">
+          <div class="polaroid">
+    <p>Golden Gate Bridge, June '12</p>
+    <img src="static/pimg/warf.jpg" height="225" width="200" />
+    </div>
+  </li>
+<li class="right">
+    <div class="polaroid">
+    <p>Colorado, June '13</p>
+    <img src="static/pimg/sf-rain.jpg" height="225" width="200" />
+    </div>
+  </li>
+  <li class="highlight">
+<li class="left">
+          <div class="polaroid">
+    <p>City Girl, June '12</p>
+    <img src="static/pimg/sfsky.jpg" height="225" width="200" />
+    </div>
+  </li>
+  <li>
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/sfgolden.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/img/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+      </div><!--end postcard back-->
+
+
+  </li>
+
+
+
+  <li>
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/sf.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/img/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+      </div><!--end postcard back-->
+
+
+  </li>
+   <li class="left">
+     <div class="polaroid">
+    <p>Dolorce Park '12</p>
+    <img src="static/pimg/sf7.jpg" height="225" width="200" />
+    </div>
+  </li>
+
+  <li class="right">
+    <div class="polaroid">
+    <p>Trolly, June '12</p>
+    <img src="static/pimg/train.jpg" height="225" width="200" />
+    </div>
+  </li>
+
+
+   <li class="highlight">
+    <div class="flipcard h">
+        <div class="front">
+          <img id="image"src="/static/pimg/sfbench.jpg" height="290px" width="450px"/>
+        </div><!--// end front-->
+        <div id="postcardback" class="back">
+          <div class="row">
+            <div id="header">
+              <center>Postcard</center>
+              <div id="stamp">
+                <img src="/static/img/stamp2.jpg" height="80" width="80" >
+              </div>
+            </div><!--end header-->
+          </div><!--end row-->
+        <div class="row">
+          <div id="left-message" class="col-xs-4">
+            <label>message:</label>
+              <p id="message_added"></p>
+          </div>
+              <div id="right-address" class="col-xs-4">
+                <label>Address:</label>
+                  <p id="street_number_added"></p>
+
+                  <p id="street_number_added"></p>
+
+                  <p id="route-address-added"></p>
+
+                  <p id="city-added"></p>
+
+                  <p id="postal_code-added"></p>
+
+                  <p id="state-added"></p>
+
+                  <p id="country-added"></p>
+              </div>
+          </div>
+      </div>
+      </div><!--end postcard back-->
+</ul>
+</div><!-- END CONTAINER-->
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

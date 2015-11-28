@@ -1,0 +1,114 @@
+/*BASE HTML AND BODY FORMAT*/
+
+ body{
+background: url(http://www.daba.in.rs/tf/pp_wordpress/wp-content/themes/penandpaper/lib/images/furley_bg.png);
+margin-top:2px;
+margin-right: 5px;
+margin-bottom: 10px;
+margin-left: 5px;
+/*padding*/
+padding-top: 100px;
+padding-right: 10px;
+padding-bottom: 0px;
+padding-left: 10px;
+
+
+}
+
+h1 {
+font-family: 'Libre Baskerville', serif;
+line-height: 50px;
+color: #00375C;
+margin-bottom: 0px;
+margin-top: 40px;
+text-align: center;
+text-shadow: 0 1px 1px #033F37;
+font-weight: 400%;
+font-weight: bold;
+font-size: 80px;
+padding-bottom: 30px;
+}
+
+h2 {
+font-family: 'Libre Baskerville', serif;
+line-height: 40px;
+color: #00375C;
+margin-bottom: 0px;
+margin-top: 30px;
+text-align: center;
+text-shadow: 0 1px 1px #033F37;
+font-weight: 400%;
+font-weight: bold;
+font-size: 60px;
+padding-bottom: 40px;
+
+}
+
+ h4  {
+font-family: 'Raleway', sans-serif;
+color: #008C5E;
+font-size: 30px;
+line-height: 20px;
+font-weight: 60px;
+margin-bottom: 0px;
+margin-top: 10px;
+text-align: center;
+text-shadow: 0 1px 1px #00375C;
+
+}
+
+h5 h6{
+font-family: 'Libre Baskerville', serif;
+color: #00375C;
+margin-bottom: 0px;
+margin-top: 20px;
+text-align: center;
+text-shadow: 0 1px 1px #033F37;
+
+font-weight: bold;
+font-size: 30px;
+padding-bottom: 30px
+}
+h3{
+font-size: 30px;
+    font-family: 'Libre Baskerville', serif;
+}
+header {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+}
+
+a {
+font-family: 'Julius Sans One', sans-serif;
+color: #00375C;
+font-weight: bold;
+}
+
+p {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.text-muted {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #00375C;
+}
+
+/*
+
+font-family: 'Libre Baskerville', serif;
+
+font-family: 'Raleway', sans-serif;
+
+font-family: 'Raleway Dots', cursive;
+
+font-family: 'Archivo Black', sans-serif;
+
+font-family: 'Archivo Narrow', sans-serif;
+
+font-family: 'Roboto Condensed', sans-serif;
+
+font-family: 'Julius Sans One', sans-serif;
+*/

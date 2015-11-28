@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>{% block title %}Wanderlust App{% endblock %}</title>
+            <!--  JQUERY AND JAVASCRRIPT SCRIPT CDN -->
+            <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+            <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+            <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+            <!-- BOOTSTRAP CND -->
+             <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+            <!-- CSS ANIMATION -->
+            <link rel="stylesheet" href="http://cdn.jsdelivr.net/animatecss/2.1.0/animate.min.css">
+
+            <!-- STATIC BOOTSTAP -->
+            <link rel="stylesheet" type="text/css" href="static/bootstrap/bootstrap.min.css">
+            <link rel="stylesheet" type="text/css" href="static/css/cssanimate.css">
+            <link rel="stylesheet" type="text/css" href="static/css/base.css">
+
+            <link rel="stylesheet" type="text/css" href="static/css/wanderlust.css">
+            <!--GOOGLE FONTS-->
+            <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville|Raleway|Raleway+Dots|Archivo+Black|Archivo+Narrow|Roboto+Condensed|Julius+Sans+One' rel='stylesheet' type='text/css'>
+
+    {% block head %}{% endblock %}
+
+    </head><!--// END HEAD-->
+    <body><!--// BODY-->
+  <!--#######################   NAV BAR    ##################-->
+
+
+                <nav class="navbar navbar-default navbar-fixed-top topnav role="navigation"">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="/">
+                            <strong>Wanderlust</strong>
+                            </a>
+                                <ul class="nav navbar-nav navbar-right">
+
+                                    {% if "user_id" in session %}
+                                    <li>
+                                        <a href="/test">Us Map</a>
+                                    </li>
+                                    <li>
+                                        <a href="/world-map">World Map</a>
+                                    </li>
+                                    <li>
+                                        <a href="/passport">Passport</a>
+                                    </li>
+                                    <li>
+                                        <a href="/timeline">Timeline</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/logout">Logout</a>
+
+                                    </li>
+
+                                    {% else %}
+                                    <li>
+                                        <a href="/">Login</a>
+                                    </li>
+
+                                    {% endif %}
+
+                                    </li>
+
+                                </ul>
+                        </div> <!-- collapsable navbar -->
+                    </div> <!-- navbar header -->
+                </nav>
+
+
+<!--#######################    FLASK FLASH    ##################-->
+
+            {% for flash in get_flashed_messages() %}
+                {{ flash }}
+            {% endfor %}
+
+<!--#######################    CONTENT   ##################-->
+
+
+                {% block content %}
+                <!--HTML BODY CONTENT HERE-->
+                {% endblock %}
+
+
+
+<br>
+<!--#######################    FOOTER   ########################-->
+            <!--FOOTER-->
+            <div class="container">
+                <div class="row">
+                <footer class="footer">
+                    <strong>Waunderlust</strong>
+                    <small class="text-muted">Copyright &copy; UP[CODE] 2015. All Rights Reserved</small>
+                </footer>
+                </div>
+            </div>
+               <!-- END FOOTER-->
+
+
+
+        </body><!--// END BODY-->
+    </html><!-- // END HTML-->
+

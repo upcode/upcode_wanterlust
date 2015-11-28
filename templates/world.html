@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+<script src="/datamaps.world.min.js"></script>
+
+
+<div id="container" style="position: relative; width: 1000px; height: 1000px;"></div>
+<script>
+    var map = new Datamap({element: document.getElementById('container')});
+
+
+
+     </script>
+  <script>
+       //basic map config with custom fills, mercator projection
+      var basic_choropleth = new Datamap({
+  element: document.getElementById("basic_choropleth"),
+  projection: 'mercator',
+  fills: {
+    defaultFill: "none",
+    userTraveledTo: "#ddd"
+  },
+  data: {
+    USA: { fillKey: "authorHasTraveledTo" },
+    JPN: { fillKey: "authorHasTraveledTo" },
+    ITA: { fillKey: "authorHasTraveledTo" },
+    CRI: { fillKey: "authorHasTraveledTo" },
+    KOR: { fillKey: "authorHasTraveledTo" },
+    DEU: { fillKey: "authorHasTraveledTo" },
+  }
+});
+
+var colors = d3.scale.category20();
+
+window.setInterval(function() {
+  basic_choropleth.updateChoropleth({
+    USA: colors(Math.random() * 10),
+    RUS: colors(Math.random() * 100),
+    AUS: { fillKey: 'userHasTraveledTo' },
+    BRA: colors(Math.random() * 50),
+    CAN: colors(Math.random() * 50),
+    ZAF: colors(Math.random() * 50),
+    IND: colors(Math.random() * 50),
+  });
+}, 2000);
+
+
+
+
+
+     </script>
+</body>
+</html>

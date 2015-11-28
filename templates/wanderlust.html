@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+  <title>{% block title %}Wanderlust App{% endblock %}</title>
+  {% block head %}
+  {% endblock %}
+
+{% block content %}
+
+
+
+
+            <div class="container-fluid" id="landingpage">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <figure id="myglobe" data-toggle="modal" data-target="#myModal" class="earth"><span class="shadow"></span>
+                         </figure>
+                            <h1 class="title">Wanderlust</h1>
+                                <h3 class="subtitle"> TRAVEL . JORNAL .EXPLORE .</b></h3>
+
+                              <hr>
+
+                    </div><!-- . end col-->
+                </div><!-- .end row-->
+
+
+
+            <!-- Welcome text modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <header>
+                            <h4><div class="modal-header">Wanderlust</h4>
+                            </header>
+
+                              <div class="modal-body">
+                                <p>Welcome to Wanderlust App! Track all you visits by coloring in each state or country. This app allows you to track all your travels in one convient place.
+                                Discover new and excting places when you travel and track all your visits with wanderlust App.<p>
+                              </div><!--end modal body-->
+                          </div>
+                      </div><!--end modal content-->
+                    </div><!--end modal window-->
+
+                <div class="row">
+                    <div class="col-md-6" id="login" style='text-align: center;'>
+                    <!-- Sign In Modal Trigger -->
+                      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signinModal">Login</button>
+                    </div>
+
+                    <div class="col-md-6" id="signup" style='text-align: center;'>
+                    <!-- Register Modal Trigger -->
+                      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signupModal">Sign-Up</button>
+                    </div>
+                </div><!-- end //modal button-->
+          </div> <!-- End of container -->
+
+
+        <!-- Sign In Modal -->
+        <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Welcome Back</h4>
+                <p>Login into your account</p>
+              </div>
+              <div class="modal-body">
+
+                <form action="/login-process" method="POST" class="form-inline">
+                  <div class="form-group">
+                      <label class="sr-only" for="exampleInputEmail3">E-mail</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" name="email" placeholder="Email"  required>
+                  </div>
+                  <div class="form-group">
+                      <label class="sr-only" for="exampleInputPassword3">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword3" name="password" placeholder="Password" pattern="[a-zA-Z0-9]{5,}" title="Minmimum 5 letters or numbers." required>
+                  </div>
+                  <div class="checkbox">
+                    <label>
+                        <input type="checkbox">Remember me
+                    </label>
+                  </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- end modal content-->
+          </div><!-- end // modal diaalog-->
+        </div><!-- // end modal window-->
+
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Create a New Account</h4>
+                <p>sign up to create your profile</p>
+
+              </div>
+              <div class="modal-body">
+                <form action="/register-process" method="POST" class="form-inline">
+                    <div class="form-group">
+                      <label class="sr-only" for="exampleInputEmail3">Email</label>
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="sr-only" for="exampleInputPassword3">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password" pattern="[a-zA-Z0-9]{5,}" title="Minmimum 5 letters or numbers." value="DELETE" required>
+                    </div>
+                      <button type="submit" class="btn btn-default" value="DELETE">Sign Up</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div><!-- // end modal content -->
+          </div> <!-- // end modal digalog-->
+        </div><!-- // end modal window-->
+
+
+
+{% endblock %}
+
+ {% block footer %}
+ {% endblock %}

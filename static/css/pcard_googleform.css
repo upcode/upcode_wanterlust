@@ -1,0 +1,114 @@
+
+#list{
+float:left;
+}
+
+#postcards {
+float:right;
+}
+
+.flipcard {
+  postion: relative;
+  width: 477px;
+  height: 310px;
+  perspective: 600px;
+}
+
+#postcardback {
+    background-image: url("/static/img/pback1.jpg");
+    background-repeat: no-repeat;
+    width: 477px;
+    height: 318px;
+}
+
+.flipcard.h:hover .front, .flipcard.h.flip .front{
+  transform: rotateY(180deg);
+}
+.flipcard.h:hover .back, .flipcard.h.flip .back{
+  transform: rotateY(0deg);
+}
+.flipcard.h .back{
+  transform: rotateY(-180deg);
+}
+.flipcard .front, .flipcard .back
+{
+
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.5s ease-in;
+  color: black;
+  background-color: black;
+  padding: 10px;
+  backface-visibility: hidden;
+}
+
+
+#stamp {
+  position: absolute;
+  top:-70;
+  right:0;
+  padding-right: 30px;
+  height: -60px;
+  width: -70px;
+}
+
+
+#right-address {
+  float: right;
+  margin: 10px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#left-message {
+  float: left;
+  margin: 10px;
+  padding-left: -80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+
+#locationField, #controls {
+        position: relative;
+        width: 390px;
+      }
+      #autocomplete {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50%;
+      }
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #address {
+        border: 1px solid #000090;
+/*        background-color: #f0f0ff;
+*/        width: 380px;
+        padding-right: 2px;
+      }
+      #address td {
+        font-size: 10pt;
+      }
+      .field {
+        width: 90%;
+      }
+      .slimField {
+        width: 80px;
+      }
+      .wideField {
+        width: 100px;
+      }
+      #locationField {
+        height: 20px;
+        margin-bottom: 3px;
+      }

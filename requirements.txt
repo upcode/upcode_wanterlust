@@ -1,0 +1,25 @@
+blessings==1.6
+blinker==1.4
+bpython==0.14.2
+curtsies==0.1.19
+Flask==0.10.1
+Flask-DebugToolbar==0.10.0
+Flask-GoogleMaps==0.1.8
+Flask-SQLAlchemy==2.1
+-e git://github.com/FelixLoether/flask-uploads@9e1266fcc09b344caf3b8f4859304813d17448d0#egg=Flask_Uploads-master
+Flask-WTF==0.12
+greenlet==0.4.9
+itsdangerous==0.24
+jellyfish==0.5.1
+Jinja2==2.8
+MarkupSafe==0.23
+ProxyTypes==0.9
+Pygments==2.0.2
+python-loaders==0.2.3
+requests==2.8.1
+six==1.10.0
+SQLAlchemy==1.0.9
+us==0.9.1
+Werkzeug==0.10.4
+wheel==0.24.0
+WTForms==2.0.2

@@ -1,0 +1,98 @@
+APPLICATION SET UP:
+
+1. mkdir Flask-App
+2. virtualenv env
+3. source env/bin/activate
+4. mkdir App-Name --> cd App-Name
+5. mkdir static: css, js, data, img
+6. mkdir templates: all html view templates, base.html
+7. tocuh model.py routes.py seed.py .gitignore secrets.sh READMe.md
+
+
+
+#############################################################################
+                        ##### MODEL IMPORT FUNCTIONS ####
+##############################################################################
+ffrom flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+app = Flask(__name__)
+db = SQLAlchemy(app)
+
+#############################################################################
+                        ##### HELPER FUNCTIONS ####
+##############################################################################
+
+
+def connect_to_db(app):
+    """Connect the database to our Flask App"""
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    # Prepare SQLAlchemy for connection
+    db.app = app
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # Makes the connection
+    db.init_app(app)
+
+##############################################################################
+
+if __name__ == "__main__":
+# As a convenience, if we run this module interactively, it will leave
+# you in a state of being able to work with the database directly.
+
+    from routes import app
+    connect_to_db(app)
+    print "#### ** Conected to the Database ** ##"
+
+SET UP ** ROUTES.PY **
+
+##############################################################################
+                ##### SET UP ROUTES.PY   ####
+##############################################################################
+from flask import Flask, render_template, redirect, url_for, request, flash, session
+from flask_wtf import Form
+
+from model import connect_to_db, db
+
+
+
+app = Flask(__name__)
+
+##############################################################################
+                    ##### SET UP SEED.PY   ####
+##############################################################################
+from model import connect_to_db, db
+from routes import app
+from model import State
+################################################################################
+
+def debug():
+    """ return message in the console if data loaded successfully"""
+
+    msg = "wanderlust db is seeded"
+
+    print msg
+###############################################################################
+                            # HELPER FUNCTION #
+###############################################################################
+
+if __name__ == "__main__":
+    connect_to_db(app)
+
+    # In case tables haven't been created, create them
+    db.create_all()
+
+    # Import different types of data
+
+    # load_name()
+
+COMMAND LINE:
+python -i model.py
+db.create_all()
+cd t
+sqlite3 database.db
+.schema
+
+python seed.py
+python routes.py
+select  * tableName ;
