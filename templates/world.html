@@ -1,57 +1,95 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-<body>
- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-<script src="/datamaps.world.min.js"></script>
+{% extends "base.html" %}
+
+{% block head %}
+
+    <title>{% block title %}World Page{% endblock %}</title>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
+    <script src="/data/datamaps.world.min.js"></script>
 
 
-<div id="container" style="position: relative; width: 1000px; height: 1000px;"></div>
+
+<style>
+#world {
+  position: relative;
+  width: 100%;
+  max-height: 1000px;
+  padding-right: 50px;
+  position: center;
+
+}
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+</style>
+
+
+  <h1>World Map</h1>
+  <div class="container">
+  <div id="world" class="worldMap" onclick="changeColor();">
+  </div><!-- // end world-->
+</div><!-- // END CONTAINER -->
+{% endblock %}
+{% block content %}
+
+
 <script>
-    var map = new Datamap({element: document.getElementById('container')});
+      var map = new Datamap({
+        scope: 'world',
+        element: document.getElementById('world'),
+        projection: 'mercator',
+        height: 1060,
+        fills:
+       {
+          defaultFill: 'gray'
+
+        },
+
+      })
+var countries = Datamap.prototype.worldTopo.objects.world.geometries;
+for (var i = 0, j = countries.length; i < j; i++) {
+  console.log(countries[i].properties);
+}
+var colors = ["red", "blue", "yellow", "green", "orange", "black", "cyan", "magenta"]
+function changeCountryColor() {
+    var country = document.getElementById("world");
+    country.style.backgroundColor = colors[Math.floor((Math.random()*8)+1)];
+}
+
+  </script>
+<script>
+// TO DO CONNECT TO SEVER USING AJAX
+
+function showUsersVisitResults(result) {
+    console.log(result);
+}
+
+function addingCountryVisit(feature) {
+    console.log("country.name: " + name.name);
+    $.post("/world-map-ajax-add",
+         {"name_id":name.name},
+         showUsersVisitResults);
+};
+
+function removeCountryVisit(feature) {
+
+    $.post("/world-map-ajax-remove",
+         {"name.name":name.name},
+         showUsersVisitResults);
+};
+</script>
+
+
+{% endblock %}
+<br><br><br>
+{% block footer %}
+{% endblock %}
 
 
 
-     </script>
-  <script>
-       //basic map config with custom fills, mercator projection
-      var basic_choropleth = new Datamap({
-  element: document.getElementById("basic_choropleth"),
-  projection: 'mercator',
-  fills: {
-    defaultFill: "none",
-    userTraveledTo: "#ddd"
-  },
-  data: {
-    USA: { fillKey: "authorHasTraveledTo" },
-    JPN: { fillKey: "authorHasTraveledTo" },
-    ITA: { fillKey: "authorHasTraveledTo" },
-    CRI: { fillKey: "authorHasTraveledTo" },
-    KOR: { fillKey: "authorHasTraveledTo" },
-    DEU: { fillKey: "authorHasTraveledTo" },
-  }
-});
 
-var colors = d3.scale.category20();
-
-window.setInterval(function() {
-  basic_choropleth.updateChoropleth({
-    USA: colors(Math.random() * 10),
-    RUS: colors(Math.random() * 100),
-    AUS: { fillKey: 'userHasTraveledTo' },
-    BRA: colors(Math.random() * 50),
-    CAN: colors(Math.random() * 50),
-    ZAF: colors(Math.random() * 50),
-    IND: colors(Math.random() * 50),
-  });
-}, 2000);
-
-
-
-
-
-     </script>
-</body>
-</html>

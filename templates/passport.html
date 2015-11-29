@@ -69,7 +69,7 @@
 
 
 
-            <center><h3 id="us">TRAVEL . JOURNAL .EXPLORE .</h3></center>
+            <center><h3 id="us">TRAVEL . EXPLORE . JOURNAL .</h3></center>
           <hr>
 
     </div><!-- // end row-->
@@ -406,7 +406,7 @@
 
 </div>
 
-  <div class="col-md-9">
+  <div class="col-md-10">
 
   <div id="worldMap"></div>
   </div><!-- // CONTAINER-->
@@ -415,224 +415,14 @@
 
 
 
-
-
-
-<!--#######################   AJAX FOR ADVENTURE LIST    ##################-->
-
-<script>
-function addAdventure(evt) {
-  evt.preventDefault();
-  var new_item = $('#itemDescription').val();
-
-  $.post('/adventurelist', {'place':new_item}, function (data){
-    console.log(data);
-    $('#adventure-list').append("<li>"+ new_item +"</li>");
-
-  });
-
-}
-$("#adventurelist").on('submit-button', addAdventure);
-
-</script>
-
-<!--#######################    AJAX FOR ADVENTURE LIST     ##################-->
-
-
-<!--#######################   GOOGLE AUTO-SEARCH FORM    ##################-->
-
-
-
-
-
-<!--################  AJAX CALL FOR SUBMITTING POSTCARD FO##################-->
-
-
-
-<script>
-// this funcation is hwere i want data to be diplayed
-function displayGooglePostcard(data){
-    console.log(data);
-    $('#street-number-added').html(data.street_number);
-    $('#route-address-added').html(data.route);
-    $('#city-added').html(data.locality);
-    $('#postal-code-added').html(data.postal_code);
-    $('#state-added').html(data.postal_code);
-    $('#country-added').html(data.country);
-    $('#message-added').html(data.message);
-
-  }
-
-function googlePostcardForm(evt) {
-  evt.preventDefault();
-  var street_number = $('#street_number').val();
-  var route_address = $('#route').val();
-  var city = $('#locality').val();
-  var postal_code = $('#postal_code').val();
-  var state = $('#administrative_area_level_1').val();
-  var country = $('#country').val();
-  var message = $('#message').val();
-
-  console.log("googlePostcardForm")
-
-  $.post('/google-postcard-ajax', {"street_number": street_number, "route": route_address, "city": city, "administrative_area_level_1": state, "country": country, "message": message
-  }, (displayGooglePostcard));
-}
-
-$('#google-postcard-form').on('submit', googlePostcardForm);
-</script>
-
-<!--###################  END AJAX CALL  ###########################-->
-
-
-
-
-
-
-<!--#######################   GOOGLE AUTO-SEARCH JAVASCRIPT    ##################-->
-
-<script>
-var placeSearch, autocomplete;
-var componentForm = {
-  street_number: 'short_name',
-  route: 'long_name',
-  locality: 'long_name',
-  administrative_area_level_1: 'short_name',
-  country: 'long_name',
-  postal_code: 'short_name'
-};
-function initAutocomplete() {
-  autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')),
-      {types: ['geocode']});
-  autocomplete.addListener('place_changed', fillInAddress);
-}
-function fillInAddress() {
-  var place = autocomplete.getPlace();
-  for (var component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }
-
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
-    }
-  }
-}
-
-function geolocate() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      var circle = new google.maps.Circle({
-        center: geolocation,
-        radius: position.coords.accuracy
-      });
-      autocomplete.setBounds(circle.getBounds());
-    });
-  }
-}
-</script>
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACeycrJBhijX_wyuGd8cGqo8VUIfT2Aww&signed_in=true&libraries=places&callback=initAutocomplete"
-        async defer>
-
-</script>
-
-
-<!--#######################   END GOOGLE AUTO-SEARCH JAVASCRIPT    ##################-->
-
-
-
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          States
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-          <center><table class="table table-bordered">
-            <tr>
-              <th>My Visits</th>
-            </tr>
-          <tbody>
-              <tr>
-                <td>10</td>
-              </tr>
-          </tbody>
-          </table></center>
-
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        50 World Citites
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        <center><table class="table table-bordered">
-            <tr>
-              <th>My Visits</th>
-            </tr>
-          <tbody>
-              <tr>
-                <td>10</td>
-              </tr>
-          </tbody>
-          </table></center>
-
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Countries
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-
-        <center><table class="table table-bordered">
-            <tr>
-              <th>My Visits</th>
-            </tr>
-          <tbody>
-              <tr>
-                <td>10</td>
-              </tr>
-          </tbody>
-          </table></center>
-
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!--#######################   CARSOLE FOR WORLD MAP    ##################-->
+
+<div class="thumbnail">
+  <center><div class="caption">
+                                  <h3>Wanderlust List</h3>
+                                    <p>Adventures To Take</p>
     <div class="container">
-        <div class="col-md-6" id="right">
+        <div class="col-md-10" id="right">
         <div id="travelCarousel" class="carousel slide" data-ride="carousel" height="200" width="200">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -728,6 +518,239 @@ function geolocate() {
     </div>
 </div><!-- // END CARSOLE CONTAINER -->
 
+</div>
+</div>
+
+
+                                  <!-- LIST -->
+                                  <ul id="adventure-list">
+                                    {% for place in places %}
+                                      <li>{{place}}</li>
+
+                                      {% endfor %}
+  </ul>
+                                <form id="adventurelist" action="">
+                                  <input type="text" id="itemDescription" name="addventurelist" placeholder="Add description" required />
+                                  <input type="submit" id="submit-button" value="add" title="Minmimum 1 letters or numbers." required/>
+                                </form></center>
+                                <br>
+                                <br>
+
+                          </div><!-- end thumbnail-->
+
+
+
+
+
+
+<!--#######################   AJAX FOR ADVENTURE LIST    ##################-->
+
+<script>
+function addAdventure(evt) {
+  evt.preventDefault();
+  var new_item = $('#itemDescription').val();
+  console.log("in step one")
+
+  $.post('/adventurelist', {'place':new_item}, function (data){
+    console.log(data);
+    $('#adventure-list').append("<li>"+ new_item +"</li>");
+
+  });
+
+}
+$("#adventurelist").on('submit', addAdventure);
+
+</script>
+
+<!--#######################    AJAX FOR ADVENTURE LIST     ##################-->
+
+
+
+
+
+
+<!--################  AJAX CALL FOR SUBMITTING POSTCARD FO##################-->
+<script>
+// this funcation is hwere i want data to be diplayed
+function displayGooglePostcard(data){
+    console.log(data);
+    $('#street-number-added').html(data.street_number);
+    $('#route-address-added').html(data.route);
+    $('#city-added').html(data.locality);
+    $('#postal-code-added').html(data.postal_code);
+    $('#state-added').html(data.postal_code);
+    $('#country-added').html(data.country);
+    $('#message-added').html(data.message);
+
+  }
+
+function googlePostcardForm(evt) {
+  evt.preventDefault();
+  var street_number = $('#street_number').val();
+  var route_address = $('#route').val();
+  var city = $('#locality').val();
+  var postal_code = $('#postal_code').val();
+  var state = $('#administrative_area_level_1').val();
+  var country = $('#country').val();
+  var message = $('#message').val();
+
+  console.log("googlePostcardForm")
+
+  $.post('/google-postcard-ajax', {"street_number": street_number, "route": route_address, "city": city, "administrative_area_level_1": state, "country": country, "message": message
+  }, (displayGooglePostcard));
+}
+
+$('#google-postcard-form').on('submit', googlePostcardForm);
+</script>
+
+<!--###################  END AJAX CALL  ###########################-->
+
+
+<!--################   GOOGLE AUTO-SEARCH JAVASCRIPT    ############-->
+
+<script>
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete')),
+      {types: ['geocode']});
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+function fillInAddress() {
+  var place = autocomplete.getPlace();
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACeycrJBhijX_wyuGd8cGqo8VUIfT2Aww&signed_in=true&libraries=places&callback=initAutocomplete"
+        async defer>
+
+</script>
+
+
+<!--##############  END GOOGLE AUTO-SEARCH JAVASCRIPT    ###############-->
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          States
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+          <center><table class="table table-bordered">
+            <tr>
+              <th>My Visits</th>
+            </tr>
+          <tbody>
+              <tr>
+                <td>10</td>
+              </tr>
+          </tbody>
+          </table></center>
+
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        50 World Citites
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <center><table class="table table-bordered">
+            <tr>
+              <th>My Visits</th>
+            </tr>
+          <tbody>
+              <tr>
+                <td>10</td>
+              </tr>
+          </tbody>
+          </table></center>
+
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Countries
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+
+        <center><table class="table table-bordered">
+            <tr>
+              <th>My Visits</th>
+            </tr>
+          <tbody>
+              <tr>
+                <td>10</td>
+              </tr>
+          </tbody>
+          </table></center>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <!--#######################   CARSOLE FOR WORLD MAP    ##################-->
 
 
@@ -751,53 +774,6 @@ $(".left").click(function(){
 <!--#######################   CARSOLE   ##################-->
 
 
-
-<!--#######################   JS FOR WORLD MAP    ##################-->
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-<script src="http://datamaps.github.io/scripts/datamaps.world.min.js?v=1"></script>
-
-<script>
-    var map = new Datamap({element: document.getElementById('worldMap')});
-
-</script>
-  <script>
-       //basic map config with custom fills, mercator projection
-      var basic_choropleth = new Datamap({
-  element: document.getElementById("basic_choropleth"),
-  projection: 'mercator',
-  fills: {
-    defaultFill: "grey",
-    userTraveledTo: "grey"
-  },
-  data: {
-    USA: { fillKey: "userHasTraveledTo" },
-    JPN: { fillKey: "userHasTraveledTo" },
-    ITA: { fillKey: "userHasTraveledTo" },
-    CRI: { fillKey: "userHasTraveledTo" },
-    KOR: { fillKey: "userHasTraveledTo" },
-    DEU: { fillKey: "userHasTraveledTo" },
-  }
-});
-
-
-var colors = d3.scale.category20();
-
-
-// window.setInterval(function() {
-//   basic_choropleth.updateChoropleth({
-//     USA: colors(Math.random() * 10),
-//     RUS: colors(Math.random() * 100),
-//     AUS: { fillKey: 'userHasTraveledTo' },
-//     BRA: colors(Math.random() * 50),
-//     CAN: colors(Math.random() * 50),
-//     ZAF: colors(Math.random() * 50),
-//     IND: colors(Math.random() * 50),
-//   });
-// }, 2000);
-
-    </script>
 
 
 

@@ -11,7 +11,7 @@ from flask import send_from_directory
 from werkzeug import secure_filename
 from flask_debugtoolbar import DebugToolbarExtension
 # IMPORTED MODEL TABLES TO ROUTES
-from model import User, State, User_State, Postcard, AdventureList
+from model import User, State, User_State, Postcard, AdventureList, Country, User_Country
 from model import connect_to_db, db
 ##############################################################################
 
@@ -33,8 +33,8 @@ def test():
     print "SERVER IS RUNNING"
 
 
-    return render_template("statemap.html")
-
+    # return render_template("statemap.html")
+    return render_template("testworld.html")
 ##############################################################################
                         ## LOGIN ROUTE ##
 ##############################################################################
@@ -177,6 +177,42 @@ def passport():
     print new_place_list
 
     return render_template('passport.html', places=new_place_list)
+
+############################################################################
+                            # # BUCKET LIST # #
+##############################################################################
+
+             # AJAX adventure list on passportpage
+
+@app.route('/adventurelist', methods=['POST'])
+def process_list():
+
+    user_id = session["user_id"]
+    new_item = request.form['place']
+    print "adventurelist", new_item
+
+    new_list_item = AdventureList(user_id=user_id, adventure_item=new_item)
+
+    db.session.add(new_list_item)
+    db.session.commit()
+    return "New adventure has been stored in DB"
+
+
+@app.route('/disply-user-adventure-list', methods=['POST'])
+
+
+@app.route('/passport-dashboard')
+def dashboard():
+
+    address = request.form.get["Street address"]
+    city = request.form.get["City"]
+    state = request.form.get["State"]
+    zipcode = request.form.get["zip code"]
+    country = request.form.get["country"]
+    des = request.form.get["description"]
+
+    user_id = session["user_id"]
+
 
 
 ##############################################################################
@@ -328,41 +364,7 @@ def profile():
 
     # @app.route('/disply-profile-info', methods=['POST'])
 
-#############################################################################
-                            # # BUCKET LIST # #
-##############################################################################
-
-             # AJAX adventure list on passportpage
-
-@app.route('/adventurelist', methods=['POST'])
-def process_list():
-
-    user_id = session["user_id"]
-    new_item = request.form['place']
-    print "adventurelist", new_item
-
-    new_list_item = AdventureList(user_id=user_id, adventure_item=new_item)
-
-    db.session.add(new_list_item)
-    db.session.commit()
-    return "New adventure has been stored in DB"
-
-
-@app.route('/disply-user-adventure-list', methods=['POST'])
-
-
-@app.route('/passport-dashboard')
-def dashboard():
-
-    address = request.form.get["Street address"]
-    city = request.form.get["City"]
-    state = request.form.get["State"]
-    zipcode = request.form.get["zip code"]
-    country = request.form.get["country"]
-    des = request.form.get["description"]
-
-    user_id = session["user_id"]
-
+#
 ##############################################################################
                  # # GOOGLE FORM API PLACE ADDRESS FORM # #
 ##############################################################################
@@ -509,11 +511,11 @@ def uploaded_file(filename):
 ##############################################################################
                             # # WORLD MAP # #
 ##############################################################################
-@app.route('/world_map')
+@app.route('/world')
 def d3_world_map():
     """d3 state map where users can click on country and changes colors"""
 
-    return render_template("world_map.html")
+    return render_template("world.html")
 
 
 

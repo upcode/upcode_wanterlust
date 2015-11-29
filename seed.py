@@ -1,6 +1,7 @@
 from model import connect_to_db, db
 from routes import app
 from model import State
+from model import Country
 ################################################################################
 
 def debug():
@@ -76,4 +77,4 @@ if __name__ == "__main__":
     # Import data to tables
 
     # load_states()
-    load_countries()
+    # load_countries()
