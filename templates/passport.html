@@ -24,9 +24,9 @@
   <!-- ################################################################### -->
 
     <style>
-    img {
+/*    img {
       height: 475px;
-      width: 600px;
+      width: 600px;*/
     }
     body {
       margin-right: 30px;
@@ -66,6 +66,32 @@
   position: center;
   margin-left: 10px;
 }
+
+.carousel-inner {
+    height: 500px;
+}
+
+.carousel-inner .item {
+    overflow: hidden;
+    max-width: 80%;
+    max-height: 100%;
+}
+
+.carousel-inner .item img {
+    width: 50%;
+    min-height: 50%;
+    max-height: none;
+}
+.carousel-caption {
+  margin-right: 300px;
+}
+ #left {
+  margin-left: 50px;
+ }
+
+ #right {
+  margin-left: 90px;
+ }
   </style>
 
   {% endblock %}
@@ -88,7 +114,8 @@
 
       </div><!-- // end row-->
   </div><!-- END CONTAINER 1 -->
-
+<br>
+<br>
 <!-- ##################################################################### -->
                 <!-- ######## LEFT SIDE COLUMN ######-->
   <div class="containler-fluid">
@@ -117,6 +144,8 @@
                 <br>
          </div><!-- // end buttons-->
             <br><br><br>
+
+
         </div><!-- // close thumbnail -->
 
 
@@ -125,217 +154,44 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div> <!-- // close col -->
-          <!-- ######## RIGHT SIDE COLUMN ######-->
-<div class="row">
-  <div class="col-sm-6 col-md-6">
-    <div class="thumbnail">
-
-<div class="caption">
-        <h3>Wanderlust List</h3>
-         <p>Adventures To Take</p>
-
-<!--           <div class="col-md-4" id="right"> -->
-           <div id="travelCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="5"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="6"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="7"></li>
-          </ol>
-
-          <!-- Wrapper for slides -->
-             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                 <img src="/static/img/timeline/nyc1.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/timeline/nyc2.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                 <img src="/static/img/ny9.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/timeline/nyc2.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>Freedom</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/timeline/nyc1.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>WINNER</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/ny9.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>NAILED IT</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                 <img src="/static/img/timeline/nyc2.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/timeline/nyc1.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-                <div class="item">
-                  <img src="/static/img/ny9.jpg" alt="...">
-                  <div class="carousel-caption">
-                    <h3>New York City</h3>
-                    <p>My favorite City</p>
-                  </div>
-                </div>
-
-              </div><!--END JS SLIDESHOW-->
-               <!-- Controls -->
-       <!--      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a> -->
-          <!--   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a> -->
-        </div> <!-- // end-->
-
-
-
-
-
-<!--
-  <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="..."> -->
-    <!--   <div class="caption"> -->
-     <!--    <h3>Wanderlust List</h3>
-         <p>Adventures To Take</p> -->
-         <!-- LIST -->
-            <ul id="adventure-list">
-                {% for place in places %}
-                <li>{{place}}</li>
-
-                {% endfor %}
-            </ul>
-           <center><form id="adventurelist" action="">
-              <input type="text" id="itemDescription" name="addventurelist" placeholder="Add description" required />
-              <input type="submit" class="btn btn-primary" role="button" id="submit-button" value="add" title="Minmimum 1 letters or numbers." required/>
-            </form></center>
-          </div>
-      </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
+  <!--   <div class="col-sm-6 col-md-6"> -->
+<!--     <div class="col-md-8"> -->
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          States
+          Cities
         </a>
       </h4>
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-          <center><table class="table table-bordered">
+          <table class="table table-bordered">
             <tr>
-              <th>My Visits</th>
-               <th>Badages</th>
-
+              <th><center>Citites</center></th>
+              <th><center>Badages</center></th>
             </tr>
           <tbody>
               <tr>
-                <td><h3>30</h3></td>
+                <td><h3>12</h3></td>
                 <td>
                   <img class="badages" src="/static/img/2.png">
-                  <img class="badages" src="/static/img/2.png">
-                  <img class="badages" src="/static/img/2.png">
+                  <img class="badages" src="/static/img/3.png">
+                  <img class="badages" src="/static/img/4.png">
+                  <img class="badages" src="/static/img/5.png">
+                  <img class="badages" src="/static/img/6.png">
+                  <img class="badages" src="/static/img/7.png">
+                  <img class="badages" src="/static/img/8.png">
+                  <img class="badages" src="/static/img/9.png">
+                  <img class="badages" src="/static/img/10.png">
+                  <img class="badages" src="/static/img/11.png">
+                  <img class="badages" src="/static/img/12.png">
                 </td>
 
               </tr>
           </tbody>
-          </table></center>
+          </table>
 
       </div>
     </div>
@@ -344,22 +200,40 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        50 World Citites
+        States
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        <center><table class="table table-bordered">
+        <table class="table table-bordered">
             <tr>
-              <th>My Visits</th>
+              <th><center>States</center></th>
+              <th><center>Badages</center></th>
+
             </tr>
           <tbody>
               <tr>
-                <td>10</td>
+                <td><h3>10</h3></td>
+                <td>
+                  <img class="badages" src="/static/img/stateicons/ca.png">
+                  <img class="badages" src="/static/img/stateicons/co.png">
+                 <img class="badages" src="/static/img/stateicons/wa.png">
+                 <img class="badages" src="/static/img/stateicons/id.png">
+                 <img class="badages" src="/static/img/stateicons/or.png">
+                 <img class="badages" src="/static/img/stateicons/fl.png">
+                 <img class="badages" src="/static/img/stateicons/ny.png">
+                 <img class="badages" src="/static/img/stateicons/az.png">
+                 <img class="badages" src="/static/img/stateicons/tx.png">
+                 <img class="badages" src="/static/img/stateicons/ut.png">
+                 <img class="badages" src="/static/img/stateicons/nj.png">
+
+                </td>
+
               </tr>
           </tbody>
-          </table></center>
+          </table>
+
 
       </div>
     </div>
@@ -375,16 +249,34 @@
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
 
-        <center><table class="table table-bordered">
+        <table class="table table-bordered">
             <tr>
-              <th>My Visits</th>
+              <th><center>Countries</center></th>
+              <th><center>Badages</center></th>
             </tr>
           <tbody>
               <tr>
-                <td>10</td>
+                <td><h3>10</h3></td>
+                <td>
+                  <img class="badages" src="/static/img/uk.png">
+                  <img class="badages" src="/static/img/us.png">
+                  <img class="badages" src="/static/img/canda.png">
+                  <img class="badages" src="/static/img/it.png">
+                  <img class="badages" src="/static/img/france.png">
+                  <img class="badages" src="/static/img/denmark.png">
+                  <img class="badages" src="/static/img/india.png">
+                  <img class="badages" src="/static/img/spain.png">
+                  <img class="badages" src="/static/img/thailand.png">
+                  <img class="badages" src="/static/img/sweden.png">
+
+
+
+
+                </td>
+
               </tr>
           </tbody>
-          </table></center>
+          </table>
 
 
       </div>
@@ -392,13 +284,569 @@
   </div>
 </div>
 
+    <div class="thumbnail">
+          <div class="thumbnail">
+      <div class="caption">
+        <center><h3>Wanderlust List</h3></center>
+        <center><p>Adventures To Take</p></center>
 
-    </div> <!-- col-md-6" id="right-->
-  </div> <!-- // END CONTAINER-->
+         <!-- LIST -->
+            <ul id="adventure-list">
+                {% for place in places %}
+                <li>{{place}}</li>
+
+                {% endfor %}
+            </ul>
+           <center><form id="adventurelist" action="">
+              <input type="text" id="itemDescription" name="addventurelist" placeholder="Add description" required />
+              <input type="submit" class="btn btn-primary" role="button" id="submit-button" value="add" title="Minmimum 1 letters or numbers." required/>
+            </form></center>
+          </div>
+      </div>
+  </div>
+3
 
 
 
 
+
+
+
+
+
+
+
+
+
+    </div> <!-- // close col -->
+
+
+<!-- ##################################################################### -->
+                <!-- ######## LEFT SIDE COLUMN ######-->
+
+
+
+
+
+
+
+
+
+
+<!-- ##################################################################### -->
+                <!-- ######## RIGHT SIDE COLUMN ######-->
+  <div class="col-sm-6 col-md-6" id="right">
+
+    <div class="thumbnail">
+
+
+      <div class="caption">
+         <center><h3>Recent Travels</h3></center>
+        <center><p>my photo journal</p></center>
+      </div>
+
+          <div id="travelslides" class="carousel slide" data-ride="carousel" >
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+
+            <li data-target="#travel" data-slide-to="0" class="active"></li>
+            <li data-target="#travel" data-slide-to="1"></li>
+            <li data-target="#travel" data-slide-to="2"></li>
+            <li data-target="#travel" data-slide-to="3"></li>
+
+
+          </ol>
+
+          <!-- Wrapper for slides -->
+             <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                <img src="/static/img/timeline/sunset.jpg" height="385" width="600" alt="nyc">
+                  <div class="carousel-caption">
+                    <h3>New York City</h3>
+                    <p>My favorite City</p>
+
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="/static/img/timeline/nyc1.jpg" height="385" width="600" alt="nycskyline">
+                  <div class="carousel-caption">
+                    <h3>Empire State Building</h3>
+                    <p>On Top of the World</p>
+                  </div>
+                </div>
+                <div class="item">
+                 <img src="/static/img/timeline/sunset.jpg" height="385" width="600" alt="couple">
+                  <div class="carousel-caption">
+
+                    <h3>I'm King of the World</h3>
+                    <p><i>I LOVE NYC</i></p>
+                  </div>
+                </div>
+
+              </div><!--END JS SLIDESHOW-->
+               <!-- Controls -->
+            <a class="left carousel-control" href="#travel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#travel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div> <!-- // end-->
+        <br><br><br>
+      </div><!-- // end Thumbnail-->
+
+<br><br><br><br>
+   </div> <!-- // close col -->
+
+
+
+
+
+<br><br>
+
+  <div class="col-sm-6 col-md-6" id="right">
+
+
+  <center><div class="flipcard h">
+    <div class="front">
+      <img id="image"src="/static/img/timeline/nyc2.jpg" height="290px" width="450px"/>
+    </div><!-- // END POSTCARD FRONT -->
+    <div id="postcardback" class="back">
+    <div class="row">
+      <div id="header">
+       <center>Postcard</center>
+       <div id="stamp">
+        <img src="/static/img/stamp4.png" height="100" width="100" >
+      </div><!-- end stamp-->
+       </div><!--end header-->
+    </div><!--end row-->
+    <div class="row">
+      <div class="container">
+          <div class="row">
+              <div id="left-message" class="col-xs-4">
+
+                  <label>message:</label>
+                  <p id="message-added"></p>
+              </div><!-- end left message-->
+              <div id="right-address" class="col-xs-4">
+                  <label>Address:</label>
+                      <p id="street-number-added"></p>
+
+                        <p id="street-number-added"></p>
+
+                      <p id="route-address-added"></p>
+
+                        <p id="city-added"></p>
+
+                      <p id="postal-code-added"></p>
+
+                        <p id="state-added"></p>
+
+                      <p id="country-added"></p>
+
+              </div><!-- end address -->
+            </div><!-- // end row-->
+    </div><!-- // end container-->
+  </div><!--end row postcard back-->
+
+
+</div><!-- end flipcard row-->
+</div></center><!-- end flipcard-->
+
+
+
+<br><br>
+
+
+
+</div><!-- // END RIGHT COL-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col-sm-6 col-md-6" id="right">
+
+    <div class="thumbnail">
+      <div class="caption">
+          <center><h3>Postcard</h3></center>
+
+      <center><div class="flipcard h">
+    <div class="front">
+      <img id="image"src="/static/img/timeline/nyc2.jpg" height="290px" width="450px"/>
+    </div><!-- // END POSTCARD FRONT -->
+    <div id="postcardback" class="back">
+    <div class="row">
+      <div id="header">
+       <center>Postcard</center>
+       <div id="stamp">
+        <img src="/static/img/stamp4.png" height="100" width="100" >
+      </div><!-- end stamp-->
+       </div><!--end header-->
+    </div><!--end row-->
+    <div class="row">
+      <div class="container">
+          <div class="row">
+              <div id="left-message" class="col-xs-4">
+
+                  <label>message:</label>
+                  <p id="message-added"></p>
+              </div><!-- end left message-->
+              <div id="right-address" class="col-xs-4">
+                  <label>Address:</label>
+                      <p id="street-number-added"></p>
+
+                        <p id="street-number-added"></p>
+
+                      <p id="route-address-added"></p>
+
+                        <p id="city-added"></p>
+
+                      <p id="postal-code-added"></p>
+
+                        <p id="state-added"></p>
+
+                      <p id="country-added"></p>
+
+              </div><!-- end address -->
+            </div><!-- // end row-->
+    </div><!-- // end container-->
+  </div><!--end row postcard back-->
+
+
+</div><!-- end flipcard row-->
+</div></center><!-- end flipcard-->
+
+
+
+        <center><div class="caption">
+            <p>Search for Address</p>
+            </div>
+
+                <form id="google-postcard-form">
+                    <table id="address">
+                        <div id="locationField">
+                          <input id="autocomplete" placeholder="Enter your address"
+                              onFocus="geolocate()" type="text"></input>
+                                <tr>
+                                  <td class="label">Street address</td>
+                                  <td class="slimField"><input class="field" id="street_number"
+                                        disabled="true"></input></td>
+                                  <td class="wideField" colspan="2"><input class="field" id="route"
+                                        disabled="true"></input></td>
+                                </tr>
+                                <tr>
+                                  <td class="label">City</td>
+                                  <td class="wideField" colspan="3"><input class="field" id="locality"
+                                        disabled="true"></input></td>
+                                </tr>
+                                <tr>
+                                  <td class="label">State</td>
+                                  <td class="slimField"><input class="field"
+                                        id="administrative_area_level_1" disabled="true"></input></td>
+                                  <td class="label">Zip code</td>
+                                  <td class="wideField"><input class="field" id="postal_code"
+                                        disabled="true"></input></td>
+                                </tr>
+                                <tr>
+                                  <td class="label">Country</td>
+                                  <td class="wideField" colspan="3"><input class="field"
+                                        id="country" disabled="true"></input></td>
+                                </tr>
+                                <br/>
+                                <tr>
+
+                                  <td class="label">Message</td>
+                                  <td class="wideField" colspan="3">
+                                  <textarea class="class="field"" rows="3" id="message"></textarea>
+                                  <br/>
+                                    <button type="submit" class="btn btn-default" id="submit-postcard">submit</button>
+                                  </td>
+                                </tr>
+                              </div><!-- // end location feild-->
+
+
+                          </table>
+                </form>
+
+  <form id="upload-file" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <label for="file">Select Your Photo</label>
+        <input name="file" type="file">
+    </fieldset>
+    <fieldset>
+        <button id="upload-file-btn" type="button">Upload</button>
+    </fieldset>
+</form>
+</div>
+
+
+</div><!-- end thumbnail-->
+
+
+
+
+</div> <!-- // close col -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--#######################   *************************    ##################-->
+<!--#######################   AJAX AND JAVASCRIPT BELOW    ##################-->
+<!--#######################   *************************    ##################-->
+
+
+<!--#######################   AJAX FOR ADVENTURE LIST    ##################-->
+
+<script>
+function addAdventure(evt) {
+  evt.preventDefault();
+  var new_item = $('#itemDescription').val();
+  console.log("in step one")
+
+  $.post('/adventurelist', {'place':new_item}, function (data){
+    console.log(data);
+    $('#adventure-list').append("<li>"+ new_item +"</li>");
+
+  });
+
+}
+$("#adventurelist").on('submit', addAdventure);
+
+</script>
+
+<!--#######################    AJAX FOR ADVENTURE LIST     ##################-->
+
+
+
+
+
+<!--################  AJAX CALL FOR SUBMITTING POSTCARD FO##################-->
+<script>
+// this funcation is hwere i want data to be diplayed
+function displayGooglePostcard(data){
+    console.log(data);
+    $('#street-number-added').html(data.street_number);
+    $('#route-address-added').html(data.route);
+    $('#city-added').html(data.locality);
+    $('#postal-code-added').html(data.postal_code);
+    $('#state-added').html(data.postal_code);
+    $('#country-added').html(data.country);
+    $('#message-added').html(data.message);
+
+  }
+
+function googlePostcardForm(evt) {
+  evt.preventDefault();
+  var street_number = $('#street_number').val();
+  var route_address = $('#route').val();
+  var city = $('#locality').val();
+  var postal_code = $('#postal_code').val();
+  var state = $('#administrative_area_level_1').val();
+  var country = $('#country').val();
+  var message = $('#message').val();
+
+  console.log("googlePostcardForm")
+
+  $.post('/google-postcard-ajax', {"street_number": street_number, "route": route_address, "city": city, "administrative_area_level_1": state, "country": country, "message": message
+  }, (displayGooglePostcard));
+}
+
+$('#google-postcard-form').on('submit', googlePostcardForm);
+</script>
+
+<!--###################  END AJAX CALL  ###########################-->
+
+
+  <!--################   GOOGLE AUTO-SEARCH JAVASCRIPT    ############-->
+
+<script>
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+function initAutocomplete() {
+  autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('autocomplete')),
+      {types: ['geocode']});
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+function fillInAddress() {
+  var place = autocomplete.getPlace();
+  for (var component in componentForm) {
+    document.getElementById(component).value = '';
+    document.getElementById(component).disabled = false;
+  }
+
+  for (var i = 0; i < place.address_components.length; i++) {
+    var addressType = place.address_components[i].types[0];
+    if (componentForm[addressType]) {
+      var val = place.address_components[i][componentForm[addressType]];
+      document.getElementById(addressType).value = val;
+    }
+  }
+}
+
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACeycrJBhijX_wyuGd8cGqo8VUIfT2Aww&signed_in=true&libraries=places&callback=initAutocomplete"
+        async defer>
+
+</script>
+
+
+<!--##############  END GOOGLE AUTO-SEARCH JAVASCRIPT    ###############-->
+
+
+<!--#######################   SLIDES   ##################-->
+
+
+<script>
+// Activate Carousel
+$("#travelslides").carousel();
+
+// Enable Carousel Indicators
+$(".item").click(function(){
+    $("#travelCarousel").carousel("next");
+});
+
+// Enable Carousel Controls
+$(".left").click(function(){
+    $("#travelslides").carousel("prev");
+});
+</script>
+<!--#######################   SLIDES   ##################-->
+<!--#######################   Profile   ##################-->
+
+<Script>
+function profileInfo(data){
+    console.log(data);
+
+    $('#first').html(data.first);
+
+    $('#last').html(last);
+
+    $('#username').html(username);
+
+    $('#city').html(city);
+
+    $('#state').html(state);
+
+    $('#quote').html(quote);
+
+    $('#about').html(about);
+  }
+
+function profile(evt) {
+  evt.preventDefault();
+  var first = $('#first').val();
+
+  var last = $('#last').val();
+
+  var username = $('#username').val();
+
+  var quote = $('#quote').val();
+
+  var city = $('#city').val();
+
+  var state = $('#state').val();
+
+  var about = $('#about').val();
+
+  console.log("in profile");
+
+  $.post('/profile', {'first':first,'last':last,'quote':quote,
+ 'city':city,'state':state,'about':about
+  }, profileInfo);
+}
+
+$("#myForm").on('submit', profile);
+</script>
+<!--#######################   profile   ##################-->
 
 
 {% endblock %}

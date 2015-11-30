@@ -44,23 +44,34 @@ float:right;
   backface-visibility: hidden;
 }
 
-
+/*
 #stamp {
-  position: absolute;
-  top:-70;
+  position: relative;
+  float: right;
   right:0;
   padding-right: 30px;
   height: -60px;
-  width: -70px;
+  width: -80px;
+  margin-bottom:5px;
+
+
+
+
+}*/
+#stamp {
+  position: absolute;
+  top: 0;
+  right: 0%;
+  margin-top: 10px;
+  margin-right: 10px;
 }
-
-
 #right-address {
   float: right;
   margin: 10px;
   padding-right: 60px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 80px;
 }
 
 #left-message {
@@ -69,6 +80,7 @@ float:right;
   padding-left: -80px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 80px;
 }
 
 
@@ -82,19 +94,25 @@ float:right;
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 50%;
+        width: 60%;
+        padding-left: 30px;
+        padding-bottom: 5px;
+        margin-left:70px;
       }
       .label {
         text-align: right;
         font-weight: bold;
         width: 100px;
         color: #303030;
+        padding-bottom: 5px;
       }
       #address {
-        border: 1px solid #000090;
-/*        background-color: #f0f0ff;
-*/        width: 380px;
+        border: 1px solid #ddd;
+        background: url(http://www.daba.in.rs/tf/pp_wordpress/wp-content/themes/penandpaper/lib/images/furley_bg.png);
+        width: 580px;
+        height: 300px;
         padding-right: 2px;
+        padding-bottom: 5px;
       }
       #address td {
         font-size: 10pt;
@@ -104,11 +122,14 @@ float:right;
       }
       .slimField {
         width: 80px;
+        padding-bottom: 5px;
       }
       .wideField {
         width: 100px;
+        padding-bottom: 5px;
       }
       #locationField {
         height: 20px;
-        margin-bottom: 3px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
       }
