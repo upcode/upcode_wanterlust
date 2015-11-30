@@ -44,7 +44,19 @@ padding-bottom: 40px;
 
 }
 
- h4  {
+h3{
+font-size: 30px;
+    font-family: 'Libre Baskerville', serif;
+}
+
+h4 {
+    font-family: 'Raleway', sans-serif;
+    color: #008C5E;
+    font-weight: 60px;
+    font-size: 20px;
+
+}
+ h5 {
 font-family: 'Raleway', sans-serif;
 color: #008C5E;
 font-size: 30px;
@@ -57,7 +69,7 @@ text-shadow: 0 1px 1px #00375C;
 
 }
 
-h5 h6{
+ h6{
 font-family: 'Libre Baskerville', serif;
 color: #00375C;
 margin-bottom: 0px;
@@ -69,10 +81,7 @@ font-weight: bold;
 font-size: 30px;
 padding-bottom: 30px
 }
-h3{
-font-size: 30px;
-    font-family: 'Libre Baskerville', serif;
-}
+
 header {
     width: 100%;
 }
@@ -89,6 +98,7 @@ font-weight: bold;
 
 p {
     font-family: 'Julius Sans One', sans-serif;
+    font-size: 12px;
 }
 
 .text-muted {

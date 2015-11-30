@@ -39,7 +39,7 @@ float:right;
   box-sizing: border-box;
   transition: all 0.5s ease-in;
   color: black;
-  background-color: black;
+  background-color: #ddd;
   padding: 10px;
   backface-visibility: hidden;
 }
@@ -69,8 +69,8 @@ float:right;
   float: right;
   margin: 10px;
   padding-right: 60px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-top: 80px;
 }
 
@@ -78,8 +78,8 @@ float:right;
   float: left;
   margin: 10px;
   padding-left: -80px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-top: 80px;
 }
 
@@ -94,7 +94,7 @@ float:right;
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 60%;
+        width: 70%;
         padding-left: 30px;
         padding-bottom: 5px;
         margin-left:70px;

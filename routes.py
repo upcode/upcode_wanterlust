@@ -3,7 +3,7 @@
 ##############################################################################
 import os
 from flask import Flask
-from flask import Flask, render_template, redirect, request, flash, session
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from flask_wtf import Form
 from flask import jsonify
 from datetime import datetime
@@ -25,7 +25,7 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 ##############################################################################
 
-@app.route('/test')
+@app.route('/statemap')
 def test():
     """ Index page where I test few functions
      and make sure routes are connected """
@@ -33,8 +33,8 @@ def test():
     print "SERVER IS RUNNING"
 
 
-    # return render_template("statemap.html")
-    return render_template("testworld.html")
+    return render_template("statemap.html")
+    # return render_template("testworld.html")
 ##############################################################################
                         ## LOGIN ROUTE ##
 ##############################################################################
@@ -214,17 +214,7 @@ def dashboard():
     user_id = session["user_id"]
 
 
-
-##############################################################################
-                            # # STATE MAP # #
-##############################################################################
-
-# @app.route('/passport')
-# def d3_state_map():
-#     """ D3 US State route"""
-#     print "US STATE MAP ROUTE IS WORKING"
-
-#     return render_template('passport.html')
+############################################################################
 
 ##############################################################################
                         # # STATE MAP AJAX CALL  # #
